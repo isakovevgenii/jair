@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+>
+<head>
+    <title>JAir</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="/styles/styles.css" rel="stylesheet"/>
+</head>
+<body onload="
+    fetch('/all-simple-table')
+            .then((response) => response.json())
+            .then((count) => {
+                document.getElementById('count-simple-table').textContent = count;
+            });
+">
+<p class="bold">JAir will be ready soon!</p>
+<p>Click <a href="files/jair-assessment.pdf">here</a> to see the assessment.</p>
+<br>
+<p>Number of users in simple_table: <span id="count-simple-table" class="bold"></span></p>
+<br>
+<p>Pilots are expecting to fly as soon as possible:</p>
+<img src="images/pilots/charles_lindbergh.png">
+<img src="images/pilots/charles_yeager.png">
+<img src="images/pilots/james_doolittle.png">
+<img src="images/pilots/noel_wien.png">
+<img src="images/pilots/robert_hoover.png">
+<br>
+<p>Available airlines in JAir:</p>
+<img src="images/airlines/lufthansa-logo.png">
+<img src="images/airlines/swissair-logo.png">
+<img src="images/airlines/virgin-atlantic-logo.png">
+<br>
+<p>Available airplanes in JAir:</p>
+<img src="images/airplanes/AirbusA350.png">
+<img src="images/airplanes/Boeing787.png">
+<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]</h1>
+
+<form th:action="@{/logout}" method="post">
+    <button type="submit">Logout</button>
+</form>
+
+</body>
+</html>
